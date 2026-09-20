@@ -2,11 +2,9 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
     margin: 0;
@@ -15,7 +13,6 @@ body {
     color: #333333;
 }
 
-
 header {
     background-color: #1f4e79;
     color: white;
@@ -23,16 +20,13 @@ header {
     text-align: center;
 }
 
-
 header h1 {
     margin: 0 0 10px 0;
 }
 
-
 header p {
     margin: 0;
 }
-
 
 nav {
     background-color: white;
@@ -44,7 +38,6 @@ nav {
     z-index: 10;
 }
 
-
 nav a {
     display: inline-block;
     margin: 5px 10px;
@@ -53,18 +46,15 @@ nav a {
     font-weight: bold;
 }
 
-
 nav a:hover {
     text-decoration: underline;
 }
-
 
 main {
     max-width: 1100px;
     margin: 30px auto;
     padding: 0 20px;
 }
-
 
 section {
     background-color: white;
@@ -73,18 +63,15 @@ section {
     border-radius: 6px;
 }
 
-
 section h2 {
     color: #1f4e79;
     margin-top: 0;
 }
 
-
 section h3 {
     color: #333333;
     margin-top: 35px;
 }
-
 
 .resumo {
     margin-top: 25px;
@@ -94,18 +81,15 @@ section h3 {
     display: flex;
     gap: 20px;
     justify-content: space-between;
-
     flex-wrap: wrap;
 
     border-radius: 6px;
 }
 
-
 .resumo div {
     flex: 1;
     min-width: 150px;
 }
-
 
 .resumo strong {
     display: block;
@@ -113,91 +97,51 @@ section h3 {
     color: #1f4e79;
 }
 
-
 .resumo span {
     font-size: 14px;
 }
 
 
-.tabela-container {
-    width: 100%;
-    overflow-x: auto;
-}
+/* CONSULTA PRINCIPAL */
 
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-
-th,
-td {
-    padding: 12px;
-    border: 1px solid #dddddd;
-    text-align: left;
-}
-
-
-th {
-    background-color: #1f4e79;
-    color: white;
-}
-
-
-tbody tr:nth-child(even) {
-    background-color: #f7f7f7;
-}
-
-
-tbody tr:hover {
+.painel-consulta {
+    margin-top: 22px;
+    padding: 20px;
     background-color: #eef4f8;
+    border-radius: 6px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 18px;
+    align-items: end;
 }
 
-
-.filtros {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin: 20px 0;
-}
-
-
-.filtros div {
-    flex: 1;
-    min-width: 250px;
-}
-
-
-label {
+.campo-consulta label,
+.filtros label {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 7px;
     font-weight: bold;
 }
 
-
 select {
     width: 100%;
-    padding: 10px;
+    padding: 11px;
     border: 1px solid #bbbbbb;
     border-radius: 4px;
     background-color: white;
+    font-size: 15px;
 }
 
-
-.grafico-container {
-    position: relative;
-    height: 420px;
-    margin-top: 25px;
+.acoes-consulta {
+    display: flex;
+    gap: 10px;
 }
 
-
-.observacao {
+.resultado-consulta {
+    margin: 15px 0 0 0;
+    color: #555555;
     font-size: 14px;
-    color: #666666;
 }
-
 
 button {
     background-color: #1f4e79;
@@ -207,13 +151,88 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 15px;
+    white-space: nowrap;
 }
-
 
 button:hover {
     background-color: #163a5b;
 }
 
+.botao-secundario {
+    background-color: white;
+    color: #1f4e79;
+    border: 1px solid #1f4e79;
+}
+
+.botao-secundario:hover {
+    background-color: #f6f9fb;
+}
+
+
+/* TABELAS */
+
+.tabela-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+th {
+    background-color: #1f4e79;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+tbody tr:hover {
+    background-color: #eef4f8;
+}
+
+
+/* FILTROS */
+
+.filtros {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.filtros div {
+    flex: 1;
+    min-width: 250px;
+}
+
+
+/* GRÁFICOS */
+
+.grafico-container {
+    position: relative;
+    height: 420px;
+    margin-top: 25px;
+}
+
+.observacao {
+    font-size: 14px;
+    color: #666666;
+}
+
+
+/* RODAPÉ */
 
 footer {
     background-color: #1f4e79;
@@ -223,49 +242,53 @@ footer {
     margin-top: 40px;
 }
 
-
 footer p {
     margin: 5px;
 }
 
 
-
 /* CELULAR */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
+    .painel-consulta {
+        grid-template-columns: 1fr;
+    }
 
+    .acoes-consulta {
+        flex-direction: column;
+    }
+
+    .acoes-consulta button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
     header {
         padding: 30px 15px;
     }
-
 
     header h1 {
         font-size: 26px;
     }
 
-
     main {
         padding: 0 10px;
     }
-
 
     section {
         padding: 18px;
     }
 
-
     .resumo {
         flex-direction: column;
     }
-
 
     .grafico-container {
         height: 320px;
     }
 
-
     nav {
         position: static;
     }
-
 }
