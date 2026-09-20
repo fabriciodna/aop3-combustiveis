@@ -3,10 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Preços de Combustíveis em Vila Velha</title>
+    <meta
+        name="description"
+        content="Consulta acadêmica de preços de combustíveis coletados em postos de Vila Velha - ES."
+    >
 
     <link rel="stylesheet" href="style.css">
 
@@ -18,9 +21,9 @@
     </script>
 
     <script
-    src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
-    defer>
-</script>
+        src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
+        defer>
+    </script>
 
     <script src="script.js" defer></script>
 </head>
@@ -31,11 +34,10 @@
         <h1>Preços de Combustíveis em Vila Velha</h1>
 
         <p>
-            Consulta dos preços coletados em postos de combustíveis
+            Consulte os preços coletados em postos de combustíveis
             do município de Vila Velha - ES.
         </p>
     </header>
-
 
     <nav>
         <a href="#sobre">Sobre</a>
@@ -46,23 +48,17 @@
         <a href="#graficos">Gráficos</a>
     </nav>
 
-
     <main>
 
-        <!-- SOBRE -->
-
         <section id="sobre">
-
             <h2>Sobre a Pesquisa</h2>
 
             <p>
                 Foram analisados cinco postos de combustíveis em Vila Velha,
-                com coletas de Gasolina, Gasolina Aditivada, Etanol
-                e Diesel S10.
+                com coletas de Gasolina, Gasolina Aditivada, Etanol e Diesel S10.
             </p>
 
             <div class="resumo">
-
                 <div>
                     <strong id="total-postos">5</strong>
                     <span>Postos pesquisados</span>
@@ -87,28 +83,59 @@
                     <strong id="total-precos">100</strong>
                     <span>Preços registrados</span>
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- CONSULTA 1 -->
-
         <section id="consulta1">
-
-            <h2>Menor e maior preço por combustível</h2>
+            <h2>Consultar menor e maior preço</h2>
 
             <p>
-                A tabela apresenta os menores e maiores preços encontrados
-                durante o período pesquisado. Em caso de empate,
-                todos os registros são apresentados.
+                Escolha o combustível e o resultado que deseja visualizar.
+                Depois, clique em <strong>Consultar</strong>.
             </p>
 
+            <div class="painel-consulta">
+                <div class="campo-consulta">
+                    <label for="filtro-combustivel-consulta1">
+                        Combustível
+                    </label>
+
+                    <select id="filtro-combustivel-consulta1">
+                        <option value="todos">Todos os combustíveis</option>
+                    </select>
+                </div>
+
+                <div class="campo-consulta">
+                    <label for="filtro-tipo-consulta1">
+                        Mostrar
+                    </label>
+
+                    <select id="filtro-tipo-consulta1">
+                        <option value="todos">Menor e maior preço</option>
+                        <option value="menor">Somente menor preço</option>
+                        <option value="maior">Somente maior preço</option>
+                    </select>
+                </div>
+
+                <div class="acoes-consulta">
+                    <button id="consultar-consulta1" type="button">
+                        Consultar
+                    </button>
+
+                    <button
+                        id="limpar-consulta1"
+                        class="botao-secundario"
+                        type="button"
+                    >
+                        Mostrar todos
+                    </button>
+                </div>
+            </div>
+
+            <p id="resumo-consulta1" class="resultado-consulta" aria-live="polite"></p>
+
             <div class="tabela-container">
-
                 <table>
-
                     <thead>
                         <tr>
                             <th>Combustível</th>
@@ -119,20 +146,12 @@
                         </tr>
                     </thead>
 
-                    <tbody id="tabela-consulta1">
-                    </tbody>
-
+                    <tbody id="tabela-consulta1"></tbody>
                 </table>
-
             </div>
-
         </section>
 
-
-        <!-- CONSULTA 2 -->
-
         <section id="consulta2">
-
             <h2>Preço médio por combustível em cada posto</h2>
 
             <p>
@@ -141,9 +160,7 @@
             </p>
 
             <div class="tabela-container">
-
                 <table>
-
                     <thead>
                         <tr>
                             <th>Posto</th>
@@ -153,20 +170,12 @@
                         </tr>
                     </thead>
 
-                    <tbody id="tabela-consulta2">
-                    </tbody>
-
+                    <tbody id="tabela-consulta2"></tbody>
                 </table>
-
             </div>
-
         </section>
 
-
-        <!-- CONSULTA 3 -->
-
         <section id="consulta3">
-
             <h2>Preço mais recente de cada combustível</h2>
 
             <p>
@@ -174,9 +183,7 @@
             </p>
 
             <div class="tabela-container">
-
                 <table>
-
                     <thead>
                         <tr>
                             <th>Posto</th>
@@ -186,53 +193,35 @@
                         </tr>
                     </thead>
 
-                    <tbody id="tabela-consulta3">
-                    </tbody>
-
+                    <tbody id="tabela-consulta3"></tbody>
                 </table>
-
             </div>
-
         </section>
 
-
-        <!-- CONSULTA 4 -->
-
         <section id="consulta4">
-
             <h2>Histórico de preços</h2>
 
             <p>
                 Escolha um posto e um combustível para consultar
-                a evolução dos preços em ordem cronológica.
+                os preços em ordem cronológica.
             </p>
 
             <div class="filtros">
-
                 <div>
                     <label for="posto-historico">Posto</label>
-
-                    <select id="posto-historico">
-                    </select>
+                    <select id="posto-historico"></select>
                 </div>
-
 
                 <div>
                     <label for="combustivel-historico">
                         Combustível
                     </label>
-
-                    <select id="combustivel-historico">
-                    </select>
+                    <select id="combustivel-historico"></select>
                 </div>
-
             </div>
 
-
             <div class="tabela-container">
-
                 <table>
-
                     <thead>
                         <tr>
                             <th>Data</th>
@@ -240,35 +229,22 @@
                         </tr>
                     </thead>
 
-                    <tbody id="tabela-consulta4">
-                    </tbody>
-
+                    <tbody id="tabela-consulta4"></tbody>
                 </table>
-
             </div>
-
 
             <div class="grafico-container">
-
-                <canvas id="grafico-historico">
-                </canvas>
-
+                <canvas id="grafico-historico"></canvas>
             </div>
-
         </section>
 
-
-        <!-- GRÁFICOS -->
-
         <section id="graficos">
-
             <h2>Gráficos da pesquisa</h2>
 
             <p>
                 Os gráficos permitem visualizar a evolução dos preços
                 ao longo do período analisado.
             </p>
-
 
             <h3>Evolução do preço médio dos combustíveis</h3>
 
@@ -278,68 +254,44 @@
             </p>
 
             <div class="grafico-container">
-
-                <canvas id="grafico-medias">
-                </canvas>
-
+                <canvas id="grafico-medias"></canvas>
             </div>
-
 
             <h3>Evolução dos preços por posto</h3>
 
             <div class="filtros">
-
                 <div>
                     <label for="posto-grafico">
                         Selecione o posto
                     </label>
 
-                    <select id="posto-grafico">
-                    </select>
+                    <select id="posto-grafico"></select>
                 </div>
-
             </div>
-
 
             <div class="grafico-container">
-
-                <canvas id="grafico-posto">
-                </canvas>
-
+                <canvas id="grafico-posto"></canvas>
             </div>
-
         </section>
 
-
         <section>
-
             <h2>Base de dados</h2>
 
             <p>
                 A pesquisa possui 25 coletas e 100 registros de preços.
             </p>
 
-            <button id="baixar-dados">
-                Baixar Planinha em Excel
+            <button id="baixar-dados" type="button">
+                Baixar planilha em Excel
             </button>
-
         </section>
 
     </main>
 
-
     <footer>
-
-        <p>
-            Projeto acadêmico - Arquitetura de Dados Relacionais I
-        </p>
-
-        <p>
-            Universidade Vila Velha - 2026
-        </p>
-
+        <p>Projeto acadêmico - Arquitetura de Dados Relacionais I</p>
+        <p>Universidade Vila Velha - 2026</p>
     </footer>
 
 </body>
-
 </html>
