@@ -1,64 +1,50 @@
-# Análise de preços de combustíveis — Vila Velha/ES
+# Preços de combustíveis em Vila Velha (ES)
 
-Projeto acadêmico de visualização e análise de preços de combustíveis, desenvolvido com **HTML, CSS e JavaScript**.
+Projeto acadêmico que desenvolvi para consultar e comparar preços de combustíveis coletados em postos de Vila Velha. Usei **HTML, CSS e JavaScript** para transformar os registros em consultas, gráficos e uma opção de exportação para Excel.
 
-A aplicação reúne registros históricos de cinco postos de Vila Velha (ES) e permite comparar preços por combustível, consultar médias e acompanhar a evolução dos valores em gráficos.
+Os dados são uma amostra histórica de **2026**. **Não são preços em tempo real** e não representam todos os postos da cidade.
 
-> **Importante:** os dados são um recorte de pesquisa de 2026, armazenado localmente em `dados.js`. Este projeto **não** consulta preços em tempo real e não deve ser usado como cotação atual de postos.
+## O que dá para consultar
 
-## Funcionalidades
+- Menor e maior preço por tipo de combustível, com filtros.
+- Média de preço por posto e combustível.
+- Registro mais recente de cada combinação **dentro da amostra**.
+- Histórico de preços por posto, com gráficos de evolução.
+- Exportação das coletas para uma planilha Excel.
 
-- Consulta dos menores e maiores preços por tipo de combustível, com filtros.
-- Média de preços por posto e combustível.
-- Exibição do registro mais recente de cada posto e combustível **dentro da amostra**.
-- Histórico de preços filtrado por posto e combustível.
-- Gráficos de evolução e médias usando **Chart.js**.
-- Exportação dos registros para **Excel (.xlsx)** usando SheetJS.
+A parte mais interessante do trabalho foi partir de uma lista de registros e criar diferentes maneiras de enxergar os mesmos dados, sem precisar montar uma tabela manualmente para cada consulta.
 
-## Dados da pesquisa
+## Sobre os dados
 
-| Indicador | Quantidade |
-| --- | ---: |
-| Postos analisados | 5 |
-| Coletas por posto | 5 |
-| Coletas no total | 25 |
-| Tipos de combustível | 4 |
-| Registros de preços | 100 |
+O arquivo `dados.js` contém **25 coletas de cinco postos**, com quatro tipos de combustível em cada coleta — **100 registros de preço** no total.
 
-Combustíveis contemplados: **gasolina, gasolina aditivada, etanol e diesel S10**. As datas dos registros vão de **janeiro a julho de 2026**, conforme o arquivo `dados.js`.
+Foram considerados gasolina, gasolina aditivada, etanol e diesel S10. As datas registradas vão de janeiro a julho de 2026.
 
 ## Tecnologias
 
-- **HTML5:** estrutura e elementos de consulta.
-- **CSS3:** estilos da interface.
-- **JavaScript (vanilla):** filtros, cálculos, manipulação do DOM e formatação.
-- **Chart.js:** gráficos.
-- **SheetJS (XLSX):** exportação para planilhas.
+**HTML5 · CSS3 · JavaScript · Chart.js · SheetJS (XLSX)**
+
+O JavaScript organiza os filtros, calcula médias, atualiza as tabelas e prepara os dados usados pelos gráficos e pela exportação.
 
 ## Como executar
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/fabriciodna/aop3-combustiveis.git
-   ```
-2. Abra o arquivo `index.html` no navegador.
-3. Mantenha a conexão com a internet para carregar as bibliotecas Chart.js e SheetJS utilizadas via CDN.
+Clone o projeto:
 
-Não é necessário instalar Node.js ou iniciar um servidor de backend para a visualização básica.
-
-## Estrutura
-
-```text
-├── index.html   # Interface e seções das consultas
-├── style.css    # Estilização
-├── dados.js     # Coletas históricas da pesquisa
-└── script.js    # Consultas, filtros, gráficos e exportação
+```bash
+git clone https://github.com/fabriciodna/aop3-combustiveis.git
 ```
 
-## Limitações e contexto
+Abra `index.html` no navegador. É necessário estar conectado à internet para carregar as bibliotecas Chart.js e SheetJS utilizadas via CDN.
 
-A versão publicada é uma **aplicação front-end estática**. Os registros são carregados de um arquivo JavaScript, sem banco de dados ou API ativa neste repositório. Os resultados dependem apenas da amostra coletada; não representam todos os estabelecimentos nem os preços atuais da cidade.
+A aplicação é **estática**: os dados vêm de `dados.js`, sem API ou banco de dados ativo neste repositório.
 
-## Autor
+## Arquivos
 
-**Fabrício Dantas** — [GitHub](https://github.com/fabriciodna)
+- `index.html` — estrutura da página e das consultas.
+- `style.css` — aparência da interface.
+- `dados.js` — registros históricos utilizados.
+- `script.js` — filtros, cálculos, gráficos e exportação.
+
+---
+
+Projeto acadêmico de [Fabrício Dantas](https://github.com/fabriciodna).
